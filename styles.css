@@ -1,0 +1,81 @@
+/* Estilos generales */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f0f0f0;
+}
+
+/* Pantalla de preguntas (fondo) */
+/* Pantalla de preguntas (fondo) */
+.pantalla {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column; /* Cambiamos la dirección a columna */
+    justify-content: center;
+    align-items: center;
+    background-color: #ffffff;
+    opacity: 0.18; /* Opacamos el fondo */
+    z-index: 1; /* Enviamos al fondo */
+    position: absolute;
+}
+
+#titulo-preguntas {
+    position: relative; /* Aseguramos que esté en su lugar natural */
+    z-index: 2; /* Elevamos el título sobre el fondo */
+    font-size: 2em; /* Tamaño de fuente para el título */
+}
+
+#descripcion-preguntas {
+    position: relative; /* Aseguramos que esté en su lugar natural */
+    z-index: 1; /* Mantenemos la descripción detrás del título */
+    margin-top: 1rem; /* Espacio entre título y descripción */
+}
+
+
+/* Overlay de inicio */
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8); /* Fondo semitransparente */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    z-index: 2; /* Colocamos encima del fondo */
+    color: white;
+}
+
+h1 {
+    font-size: 2em;
+    margin-bottom: 1rem;
+}
+
+p {
+    font-size: 1.2em;
+    margin-bottom: 2rem;
+    text-align: center;
+    max-width: 80%;
+}
+
+button {
+    padding: 1rem 2rem;
+    background-color: #ff5722;
+    border: none;
+    color: white;
+    font-size: 1.2em;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #e64a19;
+}
