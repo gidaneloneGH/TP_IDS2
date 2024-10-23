@@ -4,25 +4,26 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Trivia IES</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
-<!-- Pantalla de preguntas (fondo) -->
-<div id="preguntas" class="pantalla">
-    <h2 id="titulo-preguntas">¡Preparate!</h2>
-    <p id="descripcion-preguntas">Pregunta N° 1:</p>
-    <p id="pregunta">Hay que hacer un arreglo con varias preguntas y que se elija una aleatoriamente
-        y que hasta que se termine una partida no se pueda volver a repetir esa pregunta. Asheee
-    </p>
-</div>
+    <h1 class="titulo">IES Trivia</h1>
+    <!-- Pantalla de preguntas (fondo) -->
+    <div id="preguntas" class="preguntas">
+        <h2 id="preguntas__titulo">¡Preparate!</h2>
+        <button id="opcionA" class="preguntas__opcion" style="display: none;">A</button>
+        <button id="opcionB" class="preguntas__opcion" style="display: none;">B</button>
+        <button id="opcionC" class="preguntas__opcion" style="display: none;">C</button>
+        <button id="opcionD" class="preguntas__opcion" style="display: none;">D</button>
+    </div>
 
     <!-- Pantalla de inicio (overlay) -->
     <div id="inicio" class="overlay">
-        <h1>¡Bienvenido a la unica Trivia que combina Cultura General y del IES!</h1>
+        <h1 class="inicio__titulo">¡Bienvenido a la unica Trivia que combina Cultura General y del IES!</h1>
         <p>Respondé las preguntas correctamente y acumulá puntos. ¿Estás listo?</p>
-        <button id="jugar">Jugar</button>
+        <button id="jugar" onclick="iniciarJuego()">Jugar</button>
     </div>
 
-    <script src="script.js"></script>
+    <script src="js/index.js"></script>
 </body>
 </html>
