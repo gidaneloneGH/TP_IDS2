@@ -40,6 +40,16 @@ const preguntas = [
             D: "6"
         },
         respuestaCorrecta: "C"
+    },
+    {
+        pregunta: "¿Cuál fue el primer presidente de la República Argentina?",
+        opciones: {
+            A: "Manuel Belgrano",
+            B: "Bernardino Rivadavia",
+            C: "Hipólito Yrigoyen",
+            D: "Julio Argetino Roca"
+        },
+        respuestaCorrecta: "B"
     }
 ];
 
@@ -48,9 +58,12 @@ let preguntasMostradas = [];  // Array para registrar las preguntas mostradas
 
 function iniciarJuego() {
     if (preguntasMostradas.length === preguntas.length) {
-        alert("No mas preguntas bro");
-        return; // paramos el jeugo si no hay mas preguntas
+        alert(`No mas preguntas bro, tu puntaje es de: ${puntajeJugador}`);
+        deshabilitarBotones();
+        return; // paramos el juego si no hay mas preguntas y se muestra el puntaje que acumulo el jugador
     }
+
+    habilitarBotones();
 
     do {
         num_pregunta = Math.floor(Math.random() * preguntas.length); // Selecciona una pregunta aleatoria
@@ -85,15 +98,36 @@ function mostrarPregunta(num_pregunta) {
     }
 }
 
+let puntajeJugador = 0;
+
 function verificarRespuesta(opcion) {
     const respuestaCorrecta = preguntas[num_pregunta].respuestaCorrecta;
 
     if (opcion === respuestaCorrecta) {
         alert("¡Correcto!");
+        puntajeJugador += 100; //Se suman 100 puntos por cada respuesta correcta
     } else {
         alert("Incorrecto. La respuesta correcta era: " + respuestaCorrecta);
+        if (puntajeJugador != 0 ){
+            puntajeJugador -= 50; //se restan 50 ptos por cada respuesta incorrecta, excepto si no tiene ptos
+        }
     }
 
     // Iniciar siguiente pregunta
     iniciarJuego();
+}
+
+//Object.values(botones) convierte las referencias de los botones de un objeto en un array.
+//Basicamente en este caso te quedan solo los botones con las opciones, los cuales los recorre el for y los deshabilita
+function deshabilitarBotones() {
+    for (const boton of Object.values(botones)) { 
+        boton.disabled = true; // Deshabilita los botones
+    }
+}
+
+function habilitarBotones() {
+    for (const boton of Object.values(botones)) {
+        boton.style.display = "inline-block"; // Aseguramos que los botones estén visibles
+        boton.disabled = false; // Habilitar los botones
+    }
 }
