@@ -50,6 +50,69 @@ const preguntas = [
             D: "Julio Argetino Roca"
         },
         respuestaCorrecta: "B"
+    },
+    {
+        pregunta: "¿De qué país es esta bandera?",
+        imagenBandera: "../img/niger.png", 
+        opciones: {
+            A: "Niger",
+            B: "India",
+            C: "Irlanda",
+            D: "kurdistan"
+        },
+        respuestaCorrecta: "A"
+    },
+    {
+        pregunta: "¿De qué país es esta bandera?",
+        imagenBandera: "../img/irak.png", 
+        opciones: {
+            A: "Yemen",
+            B: "Egipto",
+            C: "Irak",
+            D: "Uganda"
+        },
+        respuestaCorrecta: "C"
+    },
+    {
+        pregunta: "¿De qué país es esta bandera?",
+        imagenBandera: "../img/sierra_leona.png", 
+        opciones: {
+            A: "Somalia",
+            B: "Nicaragua",
+            C: "Gabon",
+            D: "Sierra Leona"
+        },
+        respuestaCorrecta: "D"
+    },
+    {
+        pregunta: "¿Cuantas amiguitas tenía Barchiesi?",
+        opciones: {
+            A: "2",
+            B: "8",
+            C: "No eran amiguitas",
+            D: "3.932.183,5"
+        },
+        respuestaCorrecta: "D"
+    },
+    {
+        pregunta: "¿En que año nació Lamine Yamal?",
+        opciones: {
+            A: "2007",
+            B: "2006",
+            C: "2005",
+            D: "2004"
+        },
+        respuestaCorrecta: "A"
+    },
+    {
+        pregunta: "¿Cuál es la capital de Holanda?",
+        opciones: {
+            A: "Ámsterdam",
+            B: "Rotterdam",
+            C: "La Haya",
+            D: "Utrecht"
+        },
+        respuestaCorrecta: "A"
     }
 ];
 
@@ -82,6 +145,8 @@ const botones = {
     D: document.getElementById("opcionD")
 };
 
+const imagenBandera = document.querySelector("#preguntas img"); // Referencia al <img>
+
 // funcion que va cambiando las preguntas y las opciones
 function mostrarPregunta(num_pregunta) {
     const preguntaTitulo = document.getElementById("preguntas__titulo");
@@ -95,6 +160,13 @@ function mostrarPregunta(num_pregunta) {
         botones[opcion].innerText = `${opcion}: ${valor}`;
         botones[opcion].style.display = "inline-block";
         botones[opcion].onclick = () => verificarRespuesta(opcion);
+    }
+
+    if (preguntas[num_pregunta].imagenBandera) {
+        imagenBandera.src = preguntas[num_pregunta].imagenBandera;
+        imagenBandera.style.display = "block";  // Mostrar imagen si tiene una bandera
+    } else {
+        imagenBandera.style.display = "none";  // Ocultar imagen si no hay bandera
     }
 }
 

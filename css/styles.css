@@ -53,6 +53,15 @@ body {
     font-size: 2em; /* Tamaño de fuente para el título */
 }
 
+.preguntas__imagen {
+    max-width: 100%;
+    height: auto;
+    width: 20vw;
+    margin: auto;
+    margin-bottom: 50px;
+    margin-top: -40px;
+}
+
 .opciones__preguntas {
     z-index: 1; /* Mantenemos la descripción detrás del título */
     margin-top: 1rem; /* Espacio entre título y descripción */
