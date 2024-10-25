@@ -24,9 +24,22 @@
     <!-- Pantalla de inicio (overlay) -->
     <div id="inicio" class="overlay">
         <h1 class="inicio__titulo">¡Bienvenido a la unica Trivia que combina Cultura General y del IES!</h1>
-        <p>Respondé las preguntas correctamente y acumulá puntos. ¿Estás listo?</p>
+        <h3>Respondé las preguntas correctamente y acumulá puntos. ¿Estás listo?</h3>
+        <p>Respuesta correcta = 100 puntos</p>
+        <p>Respuesta incorrecta = -50 puntos</p>
         <button id="jugar" onclick="iniciarJuego()">Jugar</button>
     </div>
+
+    <div id="pantalla-resultados" style="display: none;">
+        <div class="contenido-modal">
+            <span id="cerrarPantalla" onclick="cerrarModal()">&times;</span>
+            <p>Resultados:</p>
+            <p id="puntajeJugador">Tu puntaje es: 0</p>
+            <p id="preguntasAcertadas">Le pegaste a 0 preguntas!!</p>
+            <button id="reiniciar-juego" onclick="jugarDeNuevo()"> Reiniciar Juego </button>
+        </div>
+    </div>    
+
 
     <script src="js/index.js"></script>
 </body>

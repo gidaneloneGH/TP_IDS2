@@ -113,6 +113,16 @@ const preguntas = [
             D: "Utrecht"
         },
         respuestaCorrecta: "A"
+    },
+    {
+        pregunta: "¿Cuál equipo es el mayor campeón la ''B''?",
+        opciones: {
+            A: "Ferro",
+            B: "Quilmes",
+            C: "Banfield",
+            D: "Lanus"
+        },
+        respuestaCorrecta: "C"
     }
 ];
 
@@ -121,8 +131,9 @@ let preguntasMostradas = [];  // Array para registrar las preguntas mostradas
 
 function iniciarJuego() {
     if (preguntasMostradas.length === preguntas.length) {
-        alert(`No mas preguntas bro, tu puntaje es de: ${puntajeJugador}`);
+        alert("No mas preguntas bro");
         deshabilitarBotones();
+        mostrarResultados();
         return; // paramos el juego si no hay mas preguntas y se muestra el puntaje que acumulo el jugador
     }
 
@@ -171,6 +182,7 @@ function mostrarPregunta(num_pregunta) {
 }
 
 let puntajeJugador = 0;
+let preguntasAcertadas = 0;
 
 function verificarRespuesta(opcion) {
     const respuestaCorrecta = preguntas[num_pregunta].respuestaCorrecta;
@@ -178,6 +190,7 @@ function verificarRespuesta(opcion) {
     if (opcion === respuestaCorrecta) {
         alert("¡Correcto!");
         puntajeJugador += 100; //Se suman 100 puntos por cada respuesta correcta
+        preguntasAcertadas ++;
     } else {
         alert("Incorrecto. La respuesta correcta era: " + respuestaCorrecta);
         if (puntajeJugador != 0 ){
@@ -202,4 +215,40 @@ function habilitarBotones() {
         boton.style.display = "inline-block"; // Aseguramos que los botones estén visibles
         boton.disabled = false; // Habilitar los botones
     }
+}
+
+const pantallaResultados = document.getElementsByClassName('contenido-modal');
+const cerrarModal = document.getElementById('cerrarPantalla');
+const reiniciarJuego = document.getElementById('reiniciar-juego');
+
+function mostrarResultados() {
+    const pantallaResultados = document.getElementById('pantalla-resultados');
+    pantallaResultados.style.display = 'flex'; // muestra el modal al terminar el juego
+
+    const puntosJugador = document.getElementById("puntajeJugador");
+    puntosJugador.innerText = `Tu puntaje es: ${puntajeJugador}`;
+
+    const preguntasCorrectas = document.getElementById("preguntasAcertadas");
+    if (preguntasAcertadas == 0){
+        preguntasCorrectas.innerText = `No le pegaste a ninguna!! Volve a intentar`
+    } else{
+        preguntasCorrectas.innerText = `Le pegaste a ${preguntasAcertadas} preguntas!!`
+    }
+
+}
+
+function jugarDeNuevo() {
+    // reinicia las variables para empezar de 0
+    num_pregunta = 0;
+    preguntasMostradas = [];
+    puntajeJugador = 0;
+    preguntasAcertadas = 0;
+
+    // oculta el modal con los resultados
+    const pantallaResultados = document.getElementById('pantalla-resultados');
+    pantallaResultados.style.display = 'none';
+    
+    habilitarBotones();
+    iniciarJuego(); 
+    //vuelve a habilitar los botones y arranca de nuevo el juego
 }
