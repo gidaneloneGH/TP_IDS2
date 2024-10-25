@@ -12,7 +12,7 @@
     <!-- Pantalla de preguntas (fondo) -->
     <div id="preguntas" class="preguntas">
         <h2 id="preguntas__titulo">¡Preparate!</h2>
-        <img src="{{preguntas.imagenBandera}}" alt="Bandera" style="display: none;" class="preguntas__imagen"">
+        <img src="" alt="Bandera" style="display: none;" class="preguntas__imagen"">
         <div class="preguntas__opciones">
             <button id="opcionA" class="preguntas__opcion" style="display: none;">A</button>
             <button id="opcionB" class="preguntas__opcion" style="display: none;">B</button>
@@ -23,9 +23,11 @@
 
     <!-- Pantalla de inicio (overlay) -->
     <div id="inicio" class="overlay">
-        <h1 class="inicio__titulo">¡Bienvenido a la unica Trivia que combina Cultura General y del IES!</h1>
-        <p>Respondé las preguntas correctamente y acumulá puntos. ¿Estás listo?</p>
-        <button id="jugar" onclick="iniciarJuego()">Jugar</button>
+        <div class="overlay__container">
+            <h2 class="inicio__titulo">¡Bienvenido a la unica Trivia que combina Cultura General y del IES!</h2>
+            <p>Respondé las preguntas correctamente y acumulá puntos. ¿Estás listo?</p>
+            <button id="jugar" onclick="iniciarJuego()">Jugar</button>
+        </div>
     </div>
 
     <script src="js/index.js"></script>
