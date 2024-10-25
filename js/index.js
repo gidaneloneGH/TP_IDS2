@@ -14,7 +14,7 @@ const preguntas = [
     {
         pregunta: "¿Quien fue la primera persona de la comisión B en dejar la carrera?",
         opciones: {
-            A: "Emi Alvarez (Milky Dresy)",
+            A: "Emi Alvarez (Miky Dressy)",
             B: "Melany",
             C: "Catriel",
             D: "Enzo"
@@ -58,7 +58,7 @@ const preguntas = [
             A: "Niger",
             B: "India",
             C: "Irlanda",
-            D: "kurdistan"
+            D: "Kurdistan"
         },
         respuestaCorrecta: "A"
     },
@@ -92,7 +92,7 @@ const preguntas = [
             C: "No eran amiguitas",
             D: "3.932.183,5"
         },
-        respuestaCorrecta: "D"
+        respuestaCorrecta: "C"
     },
     {
         pregunta: "¿En que año nació Lamine Yamal?",
@@ -188,18 +188,24 @@ function verificarRespuesta(opcion) {
     const respuestaCorrecta = preguntas[num_pregunta].respuestaCorrecta;
 
     if (opcion === respuestaCorrecta) {
-        alert("¡Correcto!");
+        botones[opcion].style.backgroundColor = "#41a500";
         puntajeJugador += 100; //Se suman 100 puntos por cada respuesta correcta
         preguntasAcertadas ++;
     } else {
-        alert("Incorrecto. La respuesta correcta era: " + respuestaCorrecta);
+        botones[opcion].style.backgroundColor = "#ff0000";
+        botones[respuestaCorrecta].style.backgroundColor = "#41a500";
         if (puntajeJugador != 0 ){
             puntajeJugador -= 50; //se restan 50 ptos por cada respuesta incorrecta, excepto si no tiene ptos
         }
     }
 
-    // Iniciar siguiente pregunta
-    iniciarJuego();
+    deshabilitarBotones();
+
+    setTimeout(() => {
+        botones[opcion].style.backgroundColor = "#bd3333";; // Restablece los colores de los botones
+        botones[respuestaCorrecta].style.backgroundColor = "#bd3333";
+        iniciarJuego(); // Llama a la siguiente pregunta
+    }, 1500);
 }
 
 //Object.values(botones) convierte las referencias de los botones de un objeto en un array.
