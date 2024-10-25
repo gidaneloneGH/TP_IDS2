@@ -53,7 +53,7 @@ const preguntas = [
     },
     {
         pregunta: "¿De qué país es esta bandera?",
-        imagenBandera: "../img/niger.png", 
+        imagenBandera: "img/niger.png", 
         opciones: {
             A: "Niger",
             B: "India",
@@ -64,7 +64,7 @@ const preguntas = [
     },
     {
         pregunta: "¿De qué país es esta bandera?",
-        imagenBandera: "../img/irak.png", 
+        imagenBandera: "img/irak.png", 
         opciones: {
             A: "Yemen",
             B: "Egipto",
@@ -75,7 +75,7 @@ const preguntas = [
     },
     {
         pregunta: "¿De qué país es esta bandera?",
-        imagenBandera: "../img/sierra_leona.png", 
+        imagenBandera: "img/sierra_leona.png", 
         opciones: {
             A: "Somalia",
             B: "Nicaragua",
