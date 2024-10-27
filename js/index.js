@@ -202,10 +202,14 @@ function verificarRespuesta(opcion) {
     deshabilitarBotones();
 
     setTimeout(() => {
-        botones[opcion].style.backgroundColor = "#bd3333";; // Restablece los colores de los botones
-        botones[respuestaCorrecta].style.backgroundColor = "#bd3333";
+        restablecerBotones(botones[opcion], botones[respuestaCorrecta]);
         iniciarJuego(); // Llama a la siguiente pregunta
     }, 1500);
+}
+
+function restablecerBotones (botonElegido, BotonCorrecto) {
+    botonElegido.style.backgroundColor = "";; // Restablece los colores de los botones
+    BotonCorrecto.style.backgroundColor = "";
 }
 
 //Object.values(botones) convierte las referencias de los botones de un objeto en un array.
@@ -223,13 +227,17 @@ function habilitarBotones() {
     }
 }
 
-const pantallaResultados = document.getElementsByClassName('contenido-modal');
-const cerrarModal = document.getElementById('cerrarPantalla');
+const resultados = document.getElementById('resultados');
+const cerrarPantalla = document.getElementById('cerrarPantalla');
 const reiniciarJuego = document.getElementById('reiniciar-juego');
 
+function cerrarModal() {
+    resultados.style.display = 'none';
+}
+
+
 function mostrarResultados() {
-    const pantallaResultados = document.getElementById('pantalla-resultados');
-    pantallaResultados.style.display = 'flex'; // muestra el modal al terminar el juego
+    resultados.style.display = 'flex'; // muestra el modal al terminar el juego
 
     const puntosJugador = document.getElementById("puntajeJugador");
     puntosJugador.innerText = `Tu puntaje es: ${puntajeJugador}`;
@@ -251,8 +259,7 @@ function jugarDeNuevo() {
     preguntasAcertadas = 0;
 
     // oculta el modal con los resultados
-    const pantallaResultados = document.getElementById('pantalla-resultados');
-    pantallaResultados.style.display = 'none';
+    resultados.style.display = 'none';
     
     habilitarBotones();
     iniciarJuego(); 
