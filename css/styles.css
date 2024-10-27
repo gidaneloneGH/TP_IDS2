@@ -135,7 +135,7 @@ p {
     }
     
     .preguntas__imagen {
-        width: 40vw;
+        width: 50vw;
     }
 
     html {
@@ -146,7 +146,7 @@ p {
         font-size: 1.4rem;
     }
 
-    button:hover {
+    .preguntas__opciones button:hover {
         background-color: #bd3333;
     }
 

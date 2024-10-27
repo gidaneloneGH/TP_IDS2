@@ -53,7 +53,7 @@ const preguntas = [
     },
     {
         pregunta: "¿De qué país es esta bandera?",
-        imagenBandera: "img/niger.png", 
+        imagen: "img/niger.png", 
         opciones: {
             A: "Niger",
             B: "India",
@@ -64,7 +64,7 @@ const preguntas = [
     },
     {
         pregunta: "¿De qué país es esta bandera?",
-        imagenBandera: "img/irak.png", 
+        imagen: "img/irak.png", 
         opciones: {
             A: "Yemen",
             B: "Egipto",
@@ -75,7 +75,7 @@ const preguntas = [
     },
     {
         pregunta: "¿De qué país es esta bandera?",
-        imagenBandera: "img/sierra_leona.png", 
+        imagen: "img/sierra_leona.png", 
         opciones: {
             A: "Somalia",
             B: "Nicaragua",
@@ -123,15 +123,29 @@ const preguntas = [
             D: "Lanus"
         },
         respuestaCorrecta: "C"
-    }
+    },
+    {
+        pregunta: "¿Como se llama este actor?",
+        imagen: "img/Bob-Odenkirk.webp", 
+        opciones: {
+            A: "Saul Goodman",
+            B: "Bob Odenkirk",
+            C: "Bryan Cranston",
+            D: "Jonathan Banks"
+        },
+        respuestaCorrecta: "B"
+    },
+
+
+
+    
 ];
 
 let num_pregunta=0;
 let preguntasMostradas = [];  // Array para registrar las preguntas mostradas
 
 function iniciarJuego() {
-    if (preguntasMostradas.length === preguntas.length) {
-        alert("No mas preguntas bro");
+    if (preguntasMostradas.length == 10) {
         deshabilitarBotones();
         mostrarResultados();
         return; // paramos el juego si no hay mas preguntas y se muestra el puntaje que acumulo el jugador
@@ -156,7 +170,7 @@ const botones = {
     D: document.getElementById("opcionD")
 };
 
-const imagenBandera = document.querySelector("#preguntas img"); // Referencia al <img>
+const imagen = document.querySelector("#preguntas img"); // Referencia al <img>
 
 // funcion que va cambiando las preguntas y las opciones
 function mostrarPregunta(num_pregunta) {
@@ -173,11 +187,11 @@ function mostrarPregunta(num_pregunta) {
         botones[opcion].onclick = () => verificarRespuesta(opcion);
     }
 
-    if (preguntas[num_pregunta].imagenBandera) {
-        imagenBandera.src = preguntas[num_pregunta].imagenBandera;
-        imagenBandera.style.display = "block";  // Mostrar imagen si tiene una bandera
+    if (preguntas[num_pregunta].imagen) {
+        imagen.src = preguntas[num_pregunta].imagen;
+        imagen.style.display = "block";  // Mostrar imagen si tiene una bandera
     } else {
-        imagenBandera.style.display = "none";  // Ocultar imagen si no hay bandera
+        imagen.style.display = "none";  // Ocultar imagen si no hay bandera
     }
 }
 
@@ -202,14 +216,16 @@ function verificarRespuesta(opcion) {
     deshabilitarBotones();
 
     setTimeout(() => {
-        restablecerBotones(botones[opcion], botones[respuestaCorrecta]);
+        restablecerBotones();
         iniciarJuego(); // Llama a la siguiente pregunta
     }, 1500);
 }
 
-function restablecerBotones (botonElegido, BotonCorrecto) {
-    botonElegido.style.backgroundColor = "";; // Restablece los colores de los botones
-    BotonCorrecto.style.backgroundColor = "";
+function restablecerBotones () {
+    for (const boton of Object.values(botones)) { 
+        boton.style.backgroundColor = ""; 
+        // Habia problemas con el hover en dispositivos moviles
+    }
 }
 
 //Object.values(botones) convierte las referencias de los botones de un objeto en un array.
@@ -240,13 +256,13 @@ function mostrarResultados() {
     resultados.style.display = 'flex'; // muestra el modal al terminar el juego
 
     const puntosJugador = document.getElementById("puntajeJugador");
-    puntosJugador.innerText = `Tu puntaje es: ${puntajeJugador}`;
+    puntosJugador.innerText = `Tu puntaje es ${puntajeJugador}`;
 
     const preguntasCorrectas = document.getElementById("preguntasAcertadas");
     if (preguntasAcertadas == 0){
-        preguntasCorrectas.innerText = `No le pegaste a ninguna!! Volve a intentar`
+        preguntasCorrectas.innerText = `No le pegaste a ninguna! Volve a intentar`
     } else{
-        preguntasCorrectas.innerText = `Le pegaste a ${preguntasAcertadas} preguntas!!`
+        preguntasCorrectas.innerText = `Le pegaste a ${preguntasAcertadas}/10 preguntas!`
     }
 
 }
