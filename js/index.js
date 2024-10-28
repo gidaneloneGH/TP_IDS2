@@ -135,10 +135,57 @@ const preguntas = [
         },
         respuestaCorrecta: "B"
     },
-
-
-
-    
+    {
+        pregunta: "¿Cuántas provincias tiene Argentina?",
+        opciones: {
+            A: "23",
+            B: "19",
+            C: "27",
+            D: "24",
+        },
+        respuestaCorrecta: "A"
+    },
+    {
+        pregunta: "¿Cómo se llama el edificio más alto del mundo?",
+        opciones: {
+            A: "Lotte World Tower",
+            B: "Empire State",
+            C: "Torre de Shanghai",
+            D: "Burj Khalifa",
+        },
+        respuestaCorrecta: "D"
+    },
+    {
+        pregunta: "¿Cúal es el nombre completo de Bart Simpson?",
+        opciones: {
+            A: "Bartholomew Simpson",
+            B: "Bartholomew JoJo Simpson",
+            C: "Bartholomew Joe Simpson",
+            D: "Bartholomew Junior Simpson",
+        },
+        respuestaCorrecta: "B"
+    },
+    {
+        pregunta: "¿Cúantas semanas tiene un año?",
+        opciones: {
+            A: "54",
+            B: "60",
+            C: "52",
+            D: "24",
+        },
+        respuestaCorrecta: "C"
+    },
+    {
+        pregunta: "¿Quien es este cantante?",
+        imagen: "img/neo-pistea.webp", 
+        opciones: {
+            A: "Neo Pistea",
+            B: "Khea",
+            C: "Mesita",
+            D: "Bhavi"
+        },
+        respuestaCorrecta: "A"
+    },
 ];
 
 let num_pregunta=0;
